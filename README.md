@@ -9,4 +9,4 @@
 ### Welcome 🙋‍♂️
 
 - Cloud Native is interesting to me.
-- Golang is some cool abstraction layer.
+- Golang is good, c# is better than java! :wink:
