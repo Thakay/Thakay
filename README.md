@@ -1,7 +1,7 @@
 
 
 <p align="center">
-  <img alig src="https://github.com/Thakay/Thakay/blob/main/hi.gif" />
+  <img alig src="https://github.com/Thakay/Thakay/blob/main/hi2.gif" />
 </p>
 
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=Thakay&show_icons=true&icon_color=1EDA32&text_color=718096&bg_color=00000000&hide_title=true&hide_border=true" />
