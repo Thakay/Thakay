@@ -13,8 +13,7 @@
 <p align="right">
   
   ### doing it right
-  sdfsdfsdfsdfsssssssssssssssssssssssssssssssssssssssssssss
-  sdffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  sdfsdfsdfsdfssssssssssssssss
 </p> 
 
 
