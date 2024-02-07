@@ -22,6 +22,10 @@
     <img align="right" src="https://github.com/Thakay/Thakay/blob/main/awsce.png" />
 </a>
 
+<a href="https://www.credly.com/badges/65d9cd6f-e6c5-488c-bdeb-498518edbe57/public_url">
+    <img align="right" src="https://github.com/Thakay/Thakay/blob/main/awsta.png" />
+</a>
+
 ### Welcome 🙋‍♂️
 
 - Cloud Native is interesting to me.
