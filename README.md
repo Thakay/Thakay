@@ -12,8 +12,8 @@
 
 <p align="right">
   
-  ### doing it right
-  sdfsdfsdfsdfssssssssssssssss
+  ### doing it
+  sdfsdfsdfsdfsss
 </p> 
 
 
