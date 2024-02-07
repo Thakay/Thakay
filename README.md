@@ -1,7 +1,11 @@
 
 
 <p align="center">
-  <img alig src="https://github.com/Thakay/Thakay/blob/main/hi3.gif" />
+  <img alig src="https://github.com/Thakay/Thakay/blob/main/hi4.gif" />
+</p>
+
+<p align="center">
+  <img alig src="https://github.com/Thakay/Thakay/blob/main/gradian.gif" />
 </p>
 
 ### Me stack:
