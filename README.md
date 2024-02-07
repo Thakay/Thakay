@@ -1,7 +1,7 @@
 
 
 <p align="center">
-  <img alig src="https://github.com/Thakay/Thakay/blob/main/hi2.gif" />
+  <img alig src="https://github.com/Thakay/Thakay/blob/main/hi3.gif" />
 </p>
 
 ### Me stack:
