@@ -28,5 +28,7 @@
 
 ### Welcome 🙋‍♂️
 
-- Cloud Native is interesting to me.
-- Golang is good, c# is better than java! :wink:
+- I code mostly in Go, Python and C#.
+- I enjoy designing HA and Distributed Systems.
+- I got a passion for Devops tools and concepts (k8s, terraform, ...).
+- Tools are just a way to get things done, so I try not to develop feelings for them :wink:
