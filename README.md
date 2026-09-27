@@ -32,7 +32,7 @@ I build LLM agents and developer tools, and the cloud-native systems that run th
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="profile/stats-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="profile/stats-light.svg">
-  <img alt="GitHub stats with an automatic rank based on stars, commits, pull requests, issues and followers. Updated daily." src="profile/stats-light.svg">
+  <img alt="GitHub stats with an automatic rank based on stars, commits, pull requests, issues and followers. Updated daily." src="profile/stats-light.svg" width="100%">
 </picture>
 
 <details>
