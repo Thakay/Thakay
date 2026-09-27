@@ -69,4 +69,5 @@ jobs:
           git add profile README.md
           git diff --cached --quiet && exit 0
           git commit -m "Update profile cards"
+          git pull --rebase --quiet origin main
           git push

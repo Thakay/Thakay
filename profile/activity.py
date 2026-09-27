@@ -7,6 +7,7 @@ GH_TOKEN.
 
 Private repositories never appear by name. Contributions the token cannot see
 (and private repositories without an area topic) are counted as "Private work".
+The profile repository itself is left out.
 A repository with a topic such as `area-agent-tooling` is counted under that
 area ("Agent tooling") instead of its own name.
 """
@@ -80,6 +81,8 @@ def summarize(collection, start):
     counts = {}
     for kind in ("commits", "issues", "prs", "reviews"):
         for item in collection[kind]:
+            if item["repository"]["name"].lower() == USER.lower():
+                continue
             key = bucket(item["repository"])
             counts[key] = counts.get(key, 0) + item["contributions"]["totalCount"]
     if collection["restrictedContributionsCount"]:
