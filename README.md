@@ -6,9 +6,6 @@
 
 I build LLM agents and developer tools, and the cloud-native systems that run them. My focus is making AI dependable in daily use: agents that own their tasks, prove their work with checks, and leave clean commits. My foundation is Go, Python, Kubernetes and AWS.
 
-> [!TIP]
-> **Now:** building [SAKO](https://github.com/Thakay/sako), a task ledger and finish gate for coding agents. Latest release: <!-- release:Thakay/sako -->[v0.5.0](https://github.com/Thakay/sako/releases/tag/v0.5.0), Sep 26, 2026<!-- /release -->. Try it in any Git repo with `uvx sako init`.
-
 ## Featured work
 
 - **[SAKO](https://github.com/Thakay/sako)** &nbsp;[![PyPI](https://img.shields.io/pypi/v/sako?label=PyPI&color=7c3aed)](https://pypi.org/project/sako/)<br>
@@ -50,7 +47,7 @@ I build LLM agents and developer tools, and the cloud-native systems that run th
 
 I'm open to applied AI roles and to collaborating on coding-agent tooling, LLM developer tools, and AI features that need solid infrastructure.
 
-- **Use Claude Code or Codex?** Try [SAKO](https://github.com/Thakay/sako) and tell me what breaks. Issues and client test reports are welcome.
+- **Use Claude Code or Codex?** Try [SAKO](https://github.com/Thakay/sako) with `uvx sako init` and tell me what breaks. Issues and client test reports are welcome.
 - **Have a project or role in mind?** [Send a collaboration request](https://github.com/Thakay/Thakay/issues/new?template=collaborate.yml).
 
-<sub>The activity card, stats card and release line are rebuilt daily by <a href=".github/workflows/profile-cards.yml">a GitHub Action</a> in this repo.</sub>
+<sub>The activity and stats cards are rebuilt daily by <a href=".github/workflows/profile-cards.yml">a GitHub Action</a> in this repo.</sub>

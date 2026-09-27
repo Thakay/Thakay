@@ -1,8 +1,8 @@
-# Rebuilds the profile README's live parts every day: the activity card, the
-# stats and rank card, and the latest-release line. Uses the built-in token
-# (public data plus the private contribution counts the profile shares). To
-# include private repository stats, add a PAT with repo and read:user scopes as
-# the repository secret PROFILE_TOKEN.
+# Rebuilds the profile README's live parts every day: the activity card and
+# the stats and rank card. Uses the built-in token (public data plus the
+# private contribution counts the profile shares). To include private
+# repository stats, add a PAT with repo and read:user scopes as the repository
+# secret PROFILE_TOKEN.
 name: Profile cards
 
 on:
@@ -29,10 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Activity card and latest release
-        run: |
-          python3 profile/activity.py
-          python3 profile/releases.py
+      - name: Activity card
+        run: python3 profile/activity.py
 
       - name: Stats card (dark)
         continue-on-error: true
@@ -71,7 +69,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile README.md
+          git add profile
           git diff --cached --quiet && exit 0
           git commit -m "Update profile cards"
           git pull --rebase --quiet origin main

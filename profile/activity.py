@@ -1,7 +1,8 @@
 """Build the "Recent activity" card for the profile README.
 
-Draws daily contributions for the last 90 days and where those contributions
-went, as light and dark SVGs in this folder. Runs daily in
+Draws daily contributions for the last 90 days, where those contributions went,
+and the newest release across public repositories, as light and dark SVGs in
+this folder. Runs daily in
 .github/workflows/profile-cards.yml; needs the GitHub CLI (`gh`) and a token in
 GH_TOKEN.
 
@@ -35,6 +36,9 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
       prs: pullRequestContributionsByRepository(maxRepositories: 50) { contributions { totalCount } repository { ...Repo } }
       reviews: pullRequestReviewContributionsByRepository(maxRepositories: 50) { contributions { totalCount } repository { ...Repo } }
     }
+    repositories(first: 50, ownerAffiliations: OWNER, privacy: PUBLIC, orderBy: {field: PUSHED_AT, direction: DESC}) {
+      nodes { name latestRelease { tagName publishedAt } }
+    }
   }
 }
 fragment Repo on Repository { name isPrivate repositoryTopics(first: 20) { nodes { topic { name } } } }
@@ -58,7 +62,7 @@ def fetch(start, now):
     data = json.loads(out.stdout)
     if data.get("errors"):
         raise SystemExit(f"GraphQL errors: {data['errors']}")
-    return data["data"]["user"]["contributionsCollection"]
+    return data["data"]["user"]
 
 
 def area_label(topic):
@@ -74,7 +78,11 @@ def bucket(repo):
     return PRIVATE if repo["isPrivate"] else repo["name"]
 
 
-def summarize(collection, start):
+def summarize(user, start):
+    collection = user["contributionsCollection"]
+    releases = [(r["latestRelease"]["publishedAt"], r["name"], r["latestRelease"]["tagName"])
+                for r in user["repositories"]["nodes"] if r["latestRelease"]]
+    release = max(releases, default=None)
     days = [(dt.date.fromisoformat(d["date"]), d["contributionCount"])
             for w in collection["contributionCalendar"]["weeks"] for d in w["contributionDays"]]
     days = [(day, n) for day, n in days if day >= start]
@@ -91,7 +99,7 @@ def summarize(collection, start):
     if len(rows) > MAX_ROWS:
         rows = rows[:MAX_ROWS - 1] + [("Other", sum(v for _, v in rows[MAX_ROWS - 1:]))]
     values = [n for _, n in days]
-    return dict(days=days, rows=rows, total=sum(values),
+    return dict(days=days, rows=rows, total=sum(values), release=release,
                 active_days=sum(1 for n in values if n), busiest=max(values, default=0))
 
 
@@ -102,7 +110,7 @@ def pct(value, total):
 
 def render(s, theme, now):
     t, e = THEMES[theme], html.escape
-    w, h, pad = 900, 380, 32
+    w, h, pad = 900, 396, 32
     chart_x, chart_w, chart_top, chart_h = pad, 488, 150, 150
     base = chart_top + chart_h
     step = chart_w / max(len(s["days"]), 1)
@@ -126,7 +134,7 @@ def render(s, theme, now):
     panel_w = w - panel_x - pad
     recent_total = sum(v for _, v in s["rows"])
     for j, (name, value) in enumerate(s["rows"]):
-        y = 188 + j * 40
+        y = 196 + j * 38
         fill = max(4.0, panel_w * value / recent_total)
         rows.append(
             f'<text x="{panel_x}" y="{y}" font-size="14" fill="{t["title"]}">{e(name)}</text>'
@@ -135,16 +143,24 @@ def render(s, theme, now):
             f'<rect x="{panel_x}" y="{y + 9}" width="{fill:.1f}" height="8" rx="4" fill="url(#accentH)"/>'
         )
     if not rows:
-        rows.append(f'<text x="{panel_x}" y="188" font-size="14" fill="{t["muted"]}">No contributions yet</text>')
+        rows.append(f'<text x="{panel_x}" y="196" font-size="14" fill="{t["muted"]}">No contributions yet</text>')
 
-    stats = [(s["total"], "contributions"), (s["active_days"], "active days"), (s["busiest"], "on the busiest day")]
+    stats = [(pad, f"{s['total']:,}", "contributions"), (pad + 170, f"{s['active_days']:,}", "active days"),
+             (pad + 340, f"{s['busiest']:,}", "on the busiest day")]
+    release_note = ""
+    if s["release"]:
+        published, repo, tag = s["release"]
+        day = dt.date.fromisoformat(published[:10]).strftime("%b %d").replace(" 0", " ")
+        stats.append((panel_x, tag, f"latest {repo} release, {day}"))
+        release_note = f" Latest release: {repo} {tag} on {day}."
     stat_svg = "".join(
-        f'<text x="{pad + k * 170}" y="104" font-size="26" font-weight="700" fill="{t["title"]}">{v:,}</text>'
-        f'<text x="{pad + k * 170}" y="126" font-size="13" fill="{t["muted"]}">{e(label)}</text>'
-        for k, (v, label) in enumerate(stats)
+        f'<text x="{x}" y="104" font-size="26" font-weight="700" fill="{t["title"]}">{e(value)}</text>'
+        f'<text x="{x}" y="126" font-size="13" fill="{t["muted"]}">{e(label)}</text>'
+        for x, value, label in stats
     )
     where = ", ".join(f"{n} {v}" for n, v in s["rows"]) or "none"
-    desc = f"{s['total']} contributions in the last {DAYS} days across {s['active_days']} active days. By repository: {where}."
+    desc = (f"{s['total']} contributions in the last {DAYS} days across {s['active_days']} active days. "
+            f"By repository: {where}.{release_note}")
     updated = now.strftime("%b %d, %Y").replace(" 0", " ")
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-labelledby="t d">
@@ -168,7 +184,7 @@ def render(s, theme, now):
     {stat_svg}
     {''.join(bars)}
     {''.join(labels)}
-    <text x="{panel_x}" y="150" font-size="14" font-weight="700" fill="{t['title']}">Where it went</text>
+    <text x="{panel_x}" y="164" font-size="14" font-weight="700" fill="{t['title']}">Where it went</text>
     {''.join(rows)}
     <text x="{pad}" y="{h - 22}" font-size="12" fill="{t['muted']}">Daily contributions, including private ones. Generated daily by GitHub Actions.</text>
   </g>
@@ -182,7 +198,7 @@ def main():
     summary = summarize(fetch(start, now), start)
     for theme in THEMES:
         (OUT / f"activity-{theme}.svg").write_text(render(summary, theme, now), encoding="utf-8")
-    print(f"days={len(summary['days'])} total={summary['total']} rows={summary['rows']}")
+    print(f"days={len(summary['days'])} total={summary['total']} rows={summary['rows']} release={summary['release']}")
 
 
 if __name__ == "__main__":
