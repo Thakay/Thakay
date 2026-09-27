@@ -1,0 +1,25 @@
+name: Collaboration request
+description: Propose a project, role or idea to work on together.
+title: "Collaboration: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reaching out. A few lines are enough. This issue is public, so share only what you are happy to post.
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to work on?
+      description: A project, a role, an integration, or a question.
+    validations:
+      required: true
+  - type: input
+    id: links
+    attributes:
+      label: Links
+      description: Optional. A repo, a site, or a job post.
+  - type: input
+    id: contact
+    attributes:
+      label: Best way to reach you
+      description: Optional. Only add contact details you are comfortable making public.

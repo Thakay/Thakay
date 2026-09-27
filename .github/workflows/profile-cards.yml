@@ -1,0 +1,72 @@
+# Rebuilds the profile README's live parts every day: the activity card, the
+# stats and rank card, and the latest-release line. Uses the built-in token
+# (public data plus the private contribution counts the profile shares). To
+# include private repository stats, add a PAT with repo and read:user scopes as
+# the repository secret PROFILE_TOKEN.
+name: Profile cards
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/profile-cards.yml"
+      - "profile/*.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.PROFILE_TOKEN || github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Activity card and latest release
+        run: |
+          python3 profile/activity.py
+          python3 profile/releases.py
+
+      - name: Stats card (dark)
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
+        with:
+          card: stats
+          path: profile/stats-dark.svg
+          token: ${{ env.GH_TOKEN }}
+          fail_on_error: true
+          options: >-
+            {"username": "${{ github.repository_owner }}", "show_icons": true, "include_all_commits": true,
+            "hide": "contribs", "custom_title": "GitHub stats", "border_radius": 14,
+            "bg_color": "30,0b0f17,101829", "border_color": "30363d", "title_color": "a78bfa",
+            "icon_color": "22d3ee", "text_color": "c9d1d9", "ring_color": "a78bfa"}
+
+      - name: Stats card (light)
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
+        with:
+          card: stats
+          path: profile/stats-light.svg
+          token: ${{ env.GH_TOKEN }}
+          fail_on_error: true
+          options: >-
+            {"username": "${{ github.repository_owner }}", "show_icons": true, "include_all_commits": true,
+            "hide": "contribs", "custom_title": "GitHub stats", "border_radius": 14,
+            "bg_color": "30,ffffff,f6f8fa", "border_color": "d0d7de", "title_color": "7c3aed",
+            "icon_color": "0891b2", "text_color": "1f2328", "ring_color": "7c3aed"}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile README.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Update profile cards"
+          git push

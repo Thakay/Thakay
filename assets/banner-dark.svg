@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Kasra Aminiyeganeh, Applied AI Engineer</title>
+  <desc id="desc">LLM agents, developer tools and cloud-native systems</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f17"/>
+      <stop offset="1" stop-color="#101829"/>
+    </linearGradient>
+    <radialGradient id="glowViolet" cx="0.82" cy="0.18" r="0.55">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowCyan" cx="0.95" cy="0.95" r="0.45">
+      <stop offset="0" stop-color="#06b6d4" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0.35"/>
+    </linearGradient>
+    <clipPath id="card"><rect x="0.5" y="0.5" width="1199" height="299" rx="18"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="1200" height="300" fill="url(#bg)"/>
+    <rect width="1200" height="300" fill="url(#glowViolet)"/>
+    <rect width="1200" height="300" fill="url(#glowCyan)"/>
+
+    <!-- agent graph motif -->
+    <g stroke="url(#edge)" stroke-width="1.6" fill="none">
+      <path d="M790 96 L872 58 M790 96 L936 146 M872 58 L936 146 M936 146 L1016 84 M936 146 L996 222 M936 146 L866 226 M1016 84 L1082 152 M1016 84 L1126 60 M1082 152 L996 222 M1082 152 L1148 232 M1082 152 L1126 60 M996 222 L866 226 M790 96 L866 226"/>
+    </g>
+    <g fill="#0d1117" stroke="url(#accent)" stroke-width="2">
+      <circle cx="790" cy="96" r="7"/>
+      <circle cx="872" cy="58" r="5"/>
+      <circle cx="1016" cy="84" r="6"/>
+      <circle cx="1082" cy="152" r="7"/>
+      <circle cx="996" cy="222" r="6"/>
+      <circle cx="866" cy="226" r="5"/>
+      <circle cx="1126" cy="60" r="4"/>
+      <circle cx="1148" cy="232" r="5"/>
+    </g>
+    <circle cx="936" cy="146" r="13" fill="url(#accent)"/>
+    <circle cx="936" cy="146" r="22" fill="none" stroke="url(#accent)" stroke-width="1.5" stroke-opacity="0.45"/>
+
+    <!-- text -->
+    <rect x="64" y="72" width="56" height="5" rx="2.5" fill="url(#accent)"/>
+    <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
+      <text x="62" y="140" font-size="56" font-weight="700" fill="#e6edf3" letter-spacing="-0.5">Kasra Aminiyeganeh</text>
+      <text x="64" y="190" font-size="32" font-weight="600" fill="url(#accent)">Applied AI Engineer</text>
+      <text x="64" y="232" font-size="20" xml:space="preserve" fill="#9198a1">LLM agents  ·  developer tools  ·  cloud-native systems</text>
+    </g>
+  </g>
+  <rect x="0.5" y="0.5" width="1199" height="299" rx="18" fill="none" stroke="#30363d"/>
+</svg>
