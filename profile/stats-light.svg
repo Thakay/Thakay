@@ -1,15 +1,15 @@
 
       <svg
-        width="467"
+        width="900"
         height="170"
-        viewBox="0 0 467 170"
+        viewBox="0 0 900 170"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-labelledby="descId"
       >
         <title id="titleId">GitHub stats, Rank: B-</title>
-        <desc id="descId">Total Stars Earned: 64, Total Commits  : 506, Total PRs: 9, Total Issues: 4</desc>
+        <desc id="descId">Total Stars Earned: 64, Total Commits  : 507, Total PRs: 9, Total Issues: 4</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 168.6132955603053;
+        stroke-dashoffset: 168.59285737246714;
       }
     }
   
@@ -99,7 +99,7 @@
         }
       }
     
-          
+          * { animation-duration: 0s !important; animation-delay: 0s !important; }
         </style>
 
         
@@ -124,7 +124,7 @@
           rx="14"
           height="99%"
           stroke="#d0d7de"
-          width="466"
+          width="899"
           fill="url(#gradient)"
           stroke-opacity="1"
         />
@@ -151,7 +151,7 @@
         >
           
     <g data-testid="rank-circle"
-          transform="translate(390.5, 35)">
+          transform="translate(823.5, 35)">
         <circle class="rank-circle-rim" cx="-10" cy="8" r="40" />
         <circle class="rank-circle" cx="-10" cy="8" r="40" />
         <g class="rank-text">
@@ -191,7 +191,7 @@
         x="174.01"
         y="12.5"
         data-testid="commits"
-      >506</text>
+      >507</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
