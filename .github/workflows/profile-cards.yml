@@ -64,6 +64,9 @@ jobs:
             "bg_color": "30,ffffff,f6f8fa", "border_color": "d0d7de", "title_color": "7c3aed",
             "icon_color": "0891b2", "text_color": "1f2328", "ring_color": "7c3aed"}
 
+      - name: Freeze stats cards
+        run: python3 profile/freeze_svg.py profile/stats-dark.svg profile/stats-light.svg
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

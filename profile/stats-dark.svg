@@ -14,7 +14,6 @@
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
             fill: #a78bfa;
-            animation: fadeInAnimation 0.8s ease-in-out forwards;
           }
           @supports(-moz-appearance: auto) {
             /* Selector detects Firefox */
@@ -29,12 +28,10 @@
       .stat { font-size:12px; }
     }
     .stagger {
-      opacity: 0;
-      animation: fadeInAnimation 0.3s ease-in-out forwards;
+      opacity: 1;
     }
-    .rank-text {
+    .rank-text { transform: translate(-5px, 5px);
       font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9;
-      animation: scaleInAnimation 0.3s ease-in-out forwards;
     }
     .rank-percentile-header {
       font-size: 14px;
@@ -56,7 +53,7 @@
       stroke-width: 6;
       opacity: 0.2;
     }
-    .rank-circle {
+    .rank-circle { stroke-dashoffset: 168.59285737246714;
       stroke: #a78bfa;
       stroke-dasharray: 250;
       fill: none;
@@ -65,17 +62,9 @@
       opacity: 0.8;
       transform-origin: -10px 8px;
       transform: rotate(-90deg);
-      animation: rankAnimation 1s forwards ease-in-out;
     }
     
-    @keyframes rankAnimation {
-      from {
-        stroke-dashoffset: 251.32741228718345;
-      }
-      to {
-        stroke-dashoffset: 168.59285737246714;
-      }
-    }
+    
   
   
           
