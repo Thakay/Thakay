@@ -9,7 +9,7 @@ I build LLM agents and developer tools, and the cloud-native systems that run th
 ## Featured work
 
 - **[SAKO](https://github.com/Thakay/sako)** &nbsp;[![PyPI](https://img.shields.io/pypi/v/sako?label=PyPI&color=7c3aed)](https://pypi.org/project/sako/)<br>
-  Makes coding agents prove their work. When a Claude Code or Codex session stops, a finish gate checks that every change is recorded, tested and committed, then writes a receipt for each finished task. Pure Python, no dependencies.
+  Helps coding agents prove their work. When a Claude Code or Codex session stops, a finish gate flags changes that are not recorded, checked or committed, and each finished task gets a receipt. Pure Python, no dependencies; in alpha.
 - **[aiterm](https://github.com/Thakay/aiterm)** &nbsp;[![GitHub stars](https://img.shields.io/github/stars/Thakay/aiterm?label=stars&color=0891b2)](https://github.com/Thakay/aiterm/stargazers)<br>
   Turns plain-English requests into Unix commands in your terminal, and lets you run, copy or edit each one before it executes. Go and the OpenAI API.
 - **[object-detect](https://github.com/Thakay/object-detect)**<br>
