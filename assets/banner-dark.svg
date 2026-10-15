@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
   <title id="title">Kasra Aminiyeganeh, Applied AI Engineer</title>
-  <desc id="desc">LLM agents, developer tools and cloud-native systems</desc>
+  <desc id="desc">AI agents, evals and developer tools</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0b0f17"/>
@@ -52,7 +52,7 @@
     <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
       <text x="62" y="140" font-size="56" font-weight="700" fill="#e6edf3" letter-spacing="-0.5">Kasra Aminiyeganeh</text>
       <text x="64" y="190" font-size="32" font-weight="600" fill="url(#accent)">Applied AI Engineer</text>
-      <text x="64" y="232" font-size="20" xml:space="preserve" fill="#9198a1">LLM agents  ·  developer tools  ·  cloud-native systems</text>
+      <text x="64" y="232" font-size="20" xml:space="preserve" fill="#9198a1">AI agents  ·  evals  ·  developer tools</text>
     </g>
   </g>
   <rect x="0.5" y="0.5" width="1199" height="299" rx="18" fill="none" stroke="#30363d"/>

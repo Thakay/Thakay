@@ -1,15 +1,19 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-  <img alt="Kasra Aminiyeganeh, Applied AI Engineer: LLM agents, developer tools and cloud-native systems" src="assets/banner-light.svg" width="100%">
+  <img alt="Kasra Aminiyeganeh, Applied AI Engineer. AI agents, evals and developer tools." src="assets/banner-light.svg" width="100%">
 </picture>
 
-I build LLM agents and developer tools, and the cloud-native systems that run them. My focus is making AI dependable in daily use: agents that own their tasks, prove their work with checks, and leave clean commits. My foundation is Go, Python, Kubernetes and AWS.
+I build AI agents and the tools around them, and test where they fail. Before agents, I spent years on backend systems where a bug costs real money, from payment callbacks at a fintech in Tehran to in-game currency services at Xsolla. I write about the work at [thakay.dev](https://thakay.dev).
 
 ## Featured work
 
+- **[Crexil](https://github.com/Thakay/crexil)**<br>
+  Sends one brief to several AI models for images, voices, sound effects and 3D, hosted or on your own GPU, and records each pick with who made it and what it beat. Agents drive it through an MCP server and a voice director on ElevenAgents, within spending limits a person sets. Python and TypeScript.
 - **[SAKO](https://github.com/Thakay/sako)** &nbsp;[![PyPI](https://img.shields.io/pypi/v/sako?label=PyPI&color=7c3aed)](https://pypi.org/project/sako/)<br>
   Helps coding agents prove their work. When a Claude Code or Codex session stops, a finish gate flags changes that are not recorded, checked or committed, and each finished task gets a receipt. Pure Python, no dependencies; in alpha.
+- **[ste-eval](https://github.com/Thakay/ste-eval)**<br>
+  A blind-judged eval harness for coding agents running inside their own CLIs. It scored 224 Claude Code and Codex replies with judges from both model families. Read [what it found](https://blog.thakay.dev/asd-ste100-and-llms/) and [what almost fooled it](https://blog.thakay.dev/what-almost-fooled-my-eval/).
 - **[aiterm](https://github.com/Thakay/aiterm)** &nbsp;[![GitHub stars](https://img.shields.io/github/stars/Thakay/aiterm?label=stars&color=0891b2)](https://github.com/Thakay/aiterm/stargazers)<br>
   Turns plain-English requests into Unix commands in your terminal, and lets you run, copy or edit each one before it executes. Go and the OpenAI API.
 - **[object-detect](https://github.com/Thakay/object-detect)**<br>
@@ -36,10 +40,11 @@ I build LLM agents and developer tools, and the cloud-native systems that run th
 <summary><b>Stack</b></summary>
 <br>
 
-- **AI and ML:** LLM APIs (OpenAI), Claude Code, Codex, TensorFlow Lite, YOLOv5, OpenCV, Jupyter
-- **Languages:** Python, Go, C#, TypeScript
-- **Cloud and infrastructure:** AWS, Azure, Kubernetes, Docker, Terraform, GitHub Actions, Linux
-- **Data and messaging:** PostgreSQL, Redis, MongoDB, Kafka, gRPC
+- **AI engineering:** LLM evaluation, guardrails, human-in-the-loop review, MCP servers, RAG, Claude Code, Codex, ElevenAgents, OpenRouter
+- **ML:** TensorFlow Lite, YOLOv5, OpenCV
+- **Languages and front end:** Python, Go, TypeScript, SQL, React
+- **Backend and data:** FastAPI, asyncio, Pydantic, REST and OpenAPI, gRPC, event-driven services, PostgreSQL, SQLite
+- **Cloud and infrastructure:** Docker, Kubernetes, Google Cloud, AWS, GitHub Actions, OpenTelemetry, Datadog, Linux
 
 </details>
 
