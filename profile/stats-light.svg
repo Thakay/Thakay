@@ -53,7 +53,7 @@
       stroke-width: 6;
       opacity: 0.2;
     }
-    .rank-circle { stroke-dashoffset: 149.54684420223225;
+    .rank-circle { stroke-dashoffset: 149.78757927147288;
       stroke: #7c3aed;
       stroke-dasharray: 250;
       fill: none;
